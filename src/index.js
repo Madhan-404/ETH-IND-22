@@ -11,6 +11,7 @@ import { infuraProvider } from "wagmi/providers/infura";
 import { publicProvider } from "wagmi/providers/public";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import App from "./App";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -45,7 +46,9 @@ root.render(
   <StrictMode>
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains} theme={darkTheme()}>
-        <App />
+        <ChakraProvider>
+          <App />
+        </ChakraProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   </StrictMode>

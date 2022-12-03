@@ -1,0 +1,686 @@
+{
+  "contractName": "UserFunctions",
+  "abi": [{
+      "anonymous": false,
+      "inputs": [{
+        "indexed": false,
+        "name": "user",
+        "type": "address"
+      }],
+      "name": "userAdded",
+      "type": "event",
+      "signature": "0x6bda722b0c3246f6ab28656c881bcc965fcfa5819f23788ac625429a6fcae7a4"
+    },
+    {
+      "anonymous": false,
+      "inputs": [{
+          "indexed": false,
+          "name": "cid",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "fileType",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "createdAt",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "updatedAt",
+          "type": "uint256"
+        }
+      ],
+      "name": "fileUploaded",
+      "type": "event",
+      "signature": "0x8df9420cffd6cb5150ba152fe465c4eed729479f0faa1d389fd181b74e6e73a6"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "AddUser",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function",
+      "signature": "0xf7e691dd"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b506101548061001f6000396000f3fe608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063f7e691dd14610046575b600080fd5b34801561005257600080fd5b5061005b61005d565b005b60003390806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550507f6bda722b0c3246f6ab28656c881bcc965fcfa5819f23788ac625429a6fcae7a433604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a156fea165627a7a72305820ba1df6bb1dc3e6e7e3db33760d941fd658ca834975e35a0e9dc3eb85b2ed86930029",
+  "deployedBytecode": "0x608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063f7e691dd14610046575b600080fd5b34801561005257600080fd5b5061005b61005d565b005b60003390806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550507f6bda722b0c3246f6ab28656c881bcc965fcfa5819f23788ac625429a6fcae7a433604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a156fea165627a7a72305820ba1df6bb1dc3e6e7e3db33760d941fd658ca834975e35a0e9dc3eb85b2ed86930029",
+  "sourceMap": "58:185:4:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;58:185:4;;;;;;;",
+  "deployedSourceMap": "58:185:4:-;;;;;;;;;;;;;;;;;;;;;;;;134:106;;8:9:-1;5:2;;;30:1;27;20:12;5:2;134:106:4;;;;;;;171:7;184:10;171:24;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;171:24:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;211:21;221:10;211:21;;;;;;;;;;;;;;;;;;;;;;134:106::o",
+  "source": "pragma solidity >=0.4.22 <0.9.0;\r\nimport \"./User.sol\";\r\n\r\ncontract UserFunctions is User {\r\n    event userAdded(address user);\r\n\r\n    function AddUser() public {\r\n        userArr.push(msg.sender);\r\n        emit userAdded(msg.sender);\r\n    }\r\n}\r\n",
+  "sourcePath": "G:/ETHIndia22/smart-contract/contracts/UserFunctions.sol",
+  "ast": {
+    "absolutePath": "/G/ETHIndia22/smart-contract/contracts/UserFunctions.sol",
+    "exportedSymbols": {
+      "UserFunctions": [
+        310
+      ]
+    },
+    "id": 311,
+    "nodeType": "SourceUnit",
+    "nodes": [{
+        "id": 286,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:4"
+      },
+      {
+        "absolutePath": "/G/ETHIndia22/smart-contract/contracts/User.sol",
+        "file": "./User.sol",
+        "id": 287,
+        "nodeType": "ImportDirective",
+        "scope": 311,
+        "sourceUnit": 285,
+        "src": "34:20:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [{
+          "arguments": null,
+          "baseName": {
+            "contractScope": null,
+            "id": 288,
+            "name": "User",
+            "nodeType": "UserDefinedTypeName",
+            "referencedDeclaration": 284,
+            "src": "84:4:4",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_User_$284",
+              "typeString": "contract User"
+            }
+          },
+          "id": 289,
+          "nodeType": "InheritanceSpecifier",
+          "src": "84:4:4"
+        }],
+        "contractDependencies": [
+          29,
+          284
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 310,
+        "linearizedBaseContracts": [
+          310,
+          284,
+          29
+        ],
+        "name": "UserFunctions",
+        "nodeType": "ContractDefinition",
+        "nodes": [{
+            "anonymous": false,
+            "documentation": null,
+            "id": 293,
+            "name": "userAdded",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 292,
+              "nodeType": "ParameterList",
+              "parameters": [{
+                "constant": false,
+                "id": 291,
+                "indexed": false,
+                "name": "user",
+                "nodeType": "VariableDeclaration",
+                "scope": 293,
+                "src": "112:12:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 290,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:7:4",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }],
+              "src": "111:14:4"
+            },
+            "src": "96:30:4"
+          },
+          {
+            "body": {
+              "id": 308,
+              "nodeType": "Block",
+              "src": "160:80:4",
+              "statements": [{
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [{
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 299,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 325,
+                        "src": "184:3:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 300,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "184:10:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    }],
+                    "expression": {
+                      "argumentTypes": [{
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 296,
+                        "name": "userArr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 275,
+                        "src": "171:7:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                          "typeString": "address[] storage ref"
+                        }
+                      },
+                      "id": 298,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "171:12:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_address_$returns$_t_uint256_$",
+                        "typeString": "function (address) returns (uint256)"
+                      }
+                    },
+                    "id": 301,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "171:24:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 302,
+                  "nodeType": "ExpressionStatement",
+                  "src": "171:24:4"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [{
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 304,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 325,
+                        "src": "221:3:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 305,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "221:10:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    }],
+                    "expression": {
+                      "argumentTypes": [{
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }],
+                      "id": 303,
+                      "name": "userAdded",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 293,
+                      "src": "211:9:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 306,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "211:21:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 307,
+                  "nodeType": "EmitStatement",
+                  "src": "206:26:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 309,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "AddUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 294,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "150:2:4"
+            },
+            "returnParameters": {
+              "id": 295,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "160:0:4"
+            },
+            "scope": 310,
+            "src": "134:106:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 311,
+        "src": "58:185:4"
+      }
+    ],
+    "src": "0:245:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/G/ETHIndia22/smart-contract/contracts/UserFunctions.sol",
+    "exportedSymbols": {
+      "UserFunctions": [
+        310
+      ]
+    },
+    "id": 311,
+    "nodeType": "SourceUnit",
+    "nodes": [{
+        "id": 286,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:4"
+      },
+      {
+        "absolutePath": "/G/ETHIndia22/smart-contract/contracts/User.sol",
+        "file": "./User.sol",
+        "id": 287,
+        "nodeType": "ImportDirective",
+        "scope": 311,
+        "sourceUnit": 285,
+        "src": "34:20:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [{
+          "arguments": null,
+          "baseName": {
+            "contractScope": null,
+            "id": 288,
+            "name": "User",
+            "nodeType": "UserDefinedTypeName",
+            "referencedDeclaration": 284,
+            "src": "84:4:4",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_User_$284",
+              "typeString": "contract User"
+            }
+          },
+          "id": 289,
+          "nodeType": "InheritanceSpecifier",
+          "src": "84:4:4"
+        }],
+        "contractDependencies": [
+          29,
+          284
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 310,
+        "linearizedBaseContracts": [
+          310,
+          284,
+          29
+        ],
+        "name": "UserFunctions",
+        "nodeType": "ContractDefinition",
+        "nodes": [{
+            "anonymous": false,
+            "documentation": null,
+            "id": 293,
+            "name": "userAdded",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 292,
+              "nodeType": "ParameterList",
+              "parameters": [{
+                "constant": false,
+                "id": 291,
+                "indexed": false,
+                "name": "user",
+                "nodeType": "VariableDeclaration",
+                "scope": 293,
+                "src": "112:12:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 290,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:7:4",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }],
+              "src": "111:14:4"
+            },
+            "src": "96:30:4"
+          },
+          {
+            "body": {
+              "id": 308,
+              "nodeType": "Block",
+              "src": "160:80:4",
+              "statements": [{
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [{
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 299,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 325,
+                        "src": "184:3:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 300,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "184:10:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    }],
+                    "expression": {
+                      "argumentTypes": [{
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 296,
+                        "name": "userArr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 275,
+                        "src": "171:7:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                          "typeString": "address[] storage ref"
+                        }
+                      },
+                      "id": 298,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "171:12:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_address_$returns$_t_uint256_$",
+                        "typeString": "function (address) returns (uint256)"
+                      }
+                    },
+                    "id": 301,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "171:24:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 302,
+                  "nodeType": "ExpressionStatement",
+                  "src": "171:24:4"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [{
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 304,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 325,
+                        "src": "221:3:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 305,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "221:10:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    }],
+                    "expression": {
+                      "argumentTypes": [{
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }],
+                      "id": 303,
+                      "name": "userAdded",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 293,
+                      "src": "211:9:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 306,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "211:21:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 307,
+                  "nodeType": "EmitStatement",
+                  "src": "206:26:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 309,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "AddUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 294,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "150:2:4"
+            },
+            "returnParameters": {
+              "id": 295,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "160:0:4"
+            },
+            "scope": 310,
+            "src": "134:106:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 311,
+        "src": "58:185:4"
+      }
+    ],
+    "src": "0:245:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {
+    "5": {
+      "events": {},
+      "links": {},
+      "address": "0xf1A6aaE228025Dad0c2c7AB4BeBb6D6759C00dba",
+      "transactionHash": "0xb3d4cf7b70a3488fa3a9ef9287e007fcefebd8aa10b64ec4404770e8d90a474c"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x79102de13C29048A38bf531087497B1B43aCc701",
+      "transactionHash": "0x88305b3dcf70e32bff1f93296c78af617833e5aee13a2f26d5917c2fdf3c116a"
+    }
+  },
+  "schemaVersion": "3.0.2",
+  "updatedAt": "2022-12-03T21:57:17.026Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

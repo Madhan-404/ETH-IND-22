@@ -5,17 +5,19 @@ import styles from "./style.module.css";
 
 // import will take event handler function accordiing to different services under 'handlers folder'
 
-export const FileCard = () => {
+export const FileCard = ({ name, fileType, url }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.heading}>
-        <img width={32} src="assets/Storage.png" />
-        <div>Upload Data</div>
-      </div>
       <div className={styles.content}>
-        Upload any data in IPFS. Your data will be visible to everyone.
+        <h1>{name}</h1>
+        <p>
+          <b>File type </b>
+          {fileType}
+        </p>
       </div>
-      <button className={styles.button}>Upload</button>
+      <a href={url} download>
+        <button className={styles.button}>Download</button>
+      </a>
     </div>
   );
 };

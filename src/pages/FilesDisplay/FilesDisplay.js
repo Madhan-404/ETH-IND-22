@@ -15,9 +15,6 @@ export const FilesDisplay = () => {
     <>
       <div className={styles.outerContainer}>
         <FileCard />
-        <FileCard />
-        <FileCard />
-        <FileCard />
       </div>
     </>
   );

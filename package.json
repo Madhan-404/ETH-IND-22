@@ -5,14 +5,17 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@pushprotocol/restapi": "^0.2.2",
     "@rainbow-me/rainbowkit": "0.4.2",
-    "ethers": "5.6.9",
+    "@web3-react/core": "^6.1.9",
+    "ethers": "^5.6.9",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-lottie-player": "^1.5.0",
     "react-router-dom": "^6.4.4",
     "react-scripts": "4.0.0",
-    "wagmi": "0.5.9"
+    "wagmi": "0.5.9",
+    "web3.storage": "^4.4.0"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
@@ -20,6 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "nodemon ./app.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

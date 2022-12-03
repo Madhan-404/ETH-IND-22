@@ -1,6 +1,7 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import React from "react";
 import styles from "./style.module.css";
+// import Upload from "../FileCard/upload";
 
 // A image on left and Content on right with connect in bottom
 // On successfull connect redirect to /files page
@@ -20,6 +21,7 @@ const Hero = () => {
           data. It's fast, secure and encrypted!!
         </div>
         <ConnectButton />
+       
       </div>
     </div>
   );

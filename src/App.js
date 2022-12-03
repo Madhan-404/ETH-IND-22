@@ -8,36 +8,51 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
-import { publicProvider } from "wagmi/providers/public";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigation } from "react-router-dom";
 import FilesDisplay from "./pages/FilesDisplay";
 import Home from "./pages/Home";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import styles from "./styles.module.css";
-const { chains, provider } = configureChains(
-  [
-    chain.mainnet,
-    chain.polygon,
-    chain.goerli,
-    chain.polygonMumbai,
-    chain.hardhat,
-  ],
-  [alchemyProvider({ alchemyId: process.env.ALCHEMY_ID }), publicProvider()]
-);
-
-const { connectors } = getDefaultWallets({
-  appName: "My RainbowKit App",
-  chains,
-});
-
-const wagmiClient = createClient({
-  autoConnect: true,
-  connectors,
-  provider,
-});
+import { useEffect, useState } from "react";
+import Web3 from "web3";
 
 export default function App() {
+  const [isConnected, setIsConnected] = useState(false);
+  useEffect(() => {
+    const checkConnection = async () => {
+      let web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+      const accounts = await web3.eth.getAccounts();
+      if (!accounts.length) {
+        setIsConnected(false);
+      } else {
+        setIsConnected(true);
+      }
+    };
+    checkConnection();
+    console.log("isConnected = ", isConnected);
+  }, []);
+  const { chains, provider } = configureChains(
+    [
+      chain.mainnet,
+      chain.polygon,
+      chain.goerli,
+      chain.polygonMumbai,
+      // chain.hardhat,
+    ],
+    [alchemyProvider({ apiKey: process.env.REACT_APP_ALCHEMY_ID })]
+  );
+
+  const { connectors } = getDefaultWallets({
+    appName: "My RainbowKit App",
+    chains,
+  });
+
+  const wagmiClient = createClient({
+    autoConnect: true,
+    connectors,
+    provider,
+  });
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains} theme={darkTheme()}>
@@ -45,8 +60,11 @@ export default function App() {
           <BrowserRouter>
             <Navbar />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/files" element={<FilesDisplay />} />
+              {!isConnected ? (
+                <Route path="/" element={<Home />} />
+              ) : (
+                <Route path="/files" element={<FilesDisplay />} />
+              )}
             </Routes>
             <Footer />
           </BrowserRouter>

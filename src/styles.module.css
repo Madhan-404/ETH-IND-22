@@ -1,20 +1,16 @@
 /** @format */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .App {
-    font-family: sans-serif;
-    text-align: center;
-    min-height: 100vh;
-    background: #74ebd5;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #acb6e5, #74ebd5);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #acb6e5, #74ebd5);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    position: relative;
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  background-color: rgb(34, 34, 34);
 }

@@ -1,8 +1,8 @@
 /** @format */
 
 import React from "react";
-import "./style.module.css";
+import styles from "./style.module.css";
 const Footer = () => {
-  return <div>Footer</div>;
+  return <div className={styles.footer}>Made with ❤️‍🔥 by StoroCrypt</div>;
 };
 export default Footer;

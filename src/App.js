@@ -14,7 +14,7 @@ import FilesDisplay from "./pages/FilesDisplay";
 import Home from "./pages/Home";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
-
+import styles from "./styles.module.css";
 const { chains, provider } = configureChains(
   [
     chain.mainnet,
@@ -41,14 +41,16 @@ export default function App() {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains} theme={darkTheme()}>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/files" element={<FilesDisplay />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
+        <div className={styles.App}>
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/files" element={<FilesDisplay />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </div>
       </RainbowKitProvider>
     </WagmiConfig>
   );

@@ -2,11 +2,13 @@
 
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import "./style.module.css";
-
+import styles from "./style.module.css";
+// import Logo from "assets/Storage.png";
 const Navbar = () => {
   return (
-    <div id="nav">
+    <div className={styles.nav}>
+      {/* <Image src="assets/Storage.png" /> */}
+      <img src="assets/Storage.png" width={44} />
       <ConnectButton />
     </div>
   );

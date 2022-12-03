@@ -9,11 +9,14 @@ import styles from "./styles.module.css";
 import { useAccount } from "wagmi";
 import { useEffect } from "react";
 import { addUser } from "./web3/user/AddUser";
+import { checkUserExists } from "./web3/user/CheckUser";
 export default function App() {
   const { isConnected, address } = useAccount();
   useEffect(() => {
     const checkNew = async () => {
-      if (isConnected) {
+      const userExists = await checkUserExists(address);
+      // console.log(userExists);
+      if (!userExists) {
         await addUser(address);
       }
     };

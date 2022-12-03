@@ -1,31 +1,54 @@
+/** @format */
+
 import "@rainbow-me/rainbowkit/dist/index.css";
-import { getDefaultWallets, RainbowKitProvider,darkTheme } from "@rainbow-me/rainbowkit";
+import {
+  getDefaultWallets,
+  RainbowKitProvider,
+  darkTheme,
+} from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
-import { YourComponent } from "./Components/YourComponent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FilesDisplay from "./pages/FilesDisplay";
+import Home from "./pages/Home";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 const { chains, provider } = configureChains(
-  [chain.mainnet, chain.polygon,chain.goerli, chain.polygonMumbai,chain.hardhat],
+  [
+    chain.mainnet,
+    chain.polygon,
+    chain.goerli,
+    chain.polygonMumbai,
+    chain.hardhat,
+  ],
   [alchemyProvider({ alchemyId: process.env.ALCHEMY_ID }), publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
   appName: "My RainbowKit App",
-  chains
+  chains,
 });
 
 const wagmiClient = createClient({
   autoConnect: true,
   connectors,
-  provider
+  provider,
 });
 
 export default function App() {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains} theme={darkTheme()}>
-        <YourComponent />
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/files" element={<FilesDisplay />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
       </RainbowKitProvider>
     </WagmiConfig>
   );

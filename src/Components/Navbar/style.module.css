@@ -1,0 +1,10 @@
+/** @format */
+
+#nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

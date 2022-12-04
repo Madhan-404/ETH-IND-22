@@ -11,13 +11,18 @@ export const FileCard = ({ name, fileType, url }) => {
       <div className={styles.content}>
         <h1>{name}</h1>
         <p>
-          <b>File type </b>
-          {fileType}
+          <div>File type </div>
+          {fileType}  
         </p>
       </div>
+      <div className={styles.two_buttons}>
       <a href={url} download>
         <button className={styles.button}>Download</button>
       </a>
+      <a href={url} share>
+        <button className={styles.button}>Share</button>
+      </a>
+      </div>
     </div>
   );
 };

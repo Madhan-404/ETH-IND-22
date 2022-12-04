@@ -18,6 +18,7 @@ import {
   Button,
   Input,
 } from "@chakra-ui/react";
+import { deployEncrypted } from "../../helpers/lightHouseStorage";
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { isConnected } = useAccount();
@@ -37,12 +38,8 @@ const Navbar = () => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Input type="file"></Input>
+            <Input onChange={(e) => deployEncrypted(e)} type="file"></Input>
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme={"blue"}>Upload</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>

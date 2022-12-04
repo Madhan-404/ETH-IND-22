@@ -77,3 +77,37 @@ const sign_auth_message = async() => {
   const signed_message = await signer.signMessage(messageRequested);
   return signed_message;
 };
+const decrypt = async(cid, publicKey) => {
+  const signed_message = await sign_auth_message();
+
+  /*
+      fetchEncryptionKey(cid, publicKey, signedMessage)
+        Parameters:
+          CID: CID of file to decrypt
+          publicKey: public key of user who has access of file or owner
+          signedMessage: message signed by owner of publicKey
+    */
+  const keyObject = await lighthouse.fetchEncryptionKey(
+    cid,
+    publicKey,
+    signed_message
+  );
+
+  // Decrypt file
+  /*
+      decryptFile(cid, key, mimeType)
+        Parameters:
+          CID: CID of file to decrypt
+          key: key to decrypt file
+          mimeType: default null, mime type of file
+    */
+
+  const decrypted = await lighthouse.decryptFile(cid, keyObject.data.key);
+  console.log(decrypted);
+  var urlCreator = window.URL || window.webkitURL;
+  var imageUrl = urlCreator.createObjectURL(decrypted.blob);
+  return imageUrl;
+  /*
+      Response: blob
+    */
+};

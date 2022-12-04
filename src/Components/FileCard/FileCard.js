@@ -10,18 +10,18 @@ export const FileCard = ({ name, fileType, url }) => {
     <div className={styles.container}>
       <div className={styles.content}>
         <h1>{name}</h1>
-        <p>
+        <div>
           <div>File type </div>
-          {fileType}  
-        </p>
+          {fileType}
+        </div>
       </div>
       <div className={styles.two_buttons}>
-      <a href={url} download>
-        <button className={styles.button}>Download</button>
-      </a>
-      <a href={url} share>
-        <button className={styles.button}>Share</button>
-      </a>
+        <a href={url} download>
+          <button className={styles.button}>Download</button>
+        </a>
+        <a href={url} download>
+          <button className={styles.button}>Share</button>
+        </a>
       </div>
     </div>
   );

@@ -27,7 +27,8 @@ const Navbar = () => {
       <div className={styles.nav}>
         {/* <Image src="assets/Storage.png" /> */}
         <img src="assets/Storage.png" width={44} />
-        <NewUpload onOpen={onOpen} />
+        {isConnected ? <NewUpload onOpen={onOpen} /> : ""}
+
         <ConnectButton />
       </div>
       <Modal isOpen={isOpen} onClose={onClose}>

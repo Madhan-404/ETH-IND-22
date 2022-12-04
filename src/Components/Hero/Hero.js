@@ -15,7 +15,7 @@ const Hero = () => {
           Sharing files is now Interplanetory
         </div>
         <div className={styles.content}>
-          With StoroCrypt you can share your data anywhere. StoroCrypt provides
+          With GreyBox you can share your data anywhere. GreyBox provides
           restricted content sharing features so you can be extra safe with your
           data. It's fast, secure and encrypted!!
         </div>

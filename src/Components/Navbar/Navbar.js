@@ -26,7 +26,10 @@ const Navbar = () => {
     <>
       <div className={styles.nav}>
         {/* <Image src="assets/Storage.png" /> */}
+        <div style={{display:"flex",alignItems:"center"}}>
         <img src="assets/Storage.png" width={44} />
+        <b>GrayBox</b>
+        </div>
         {isConnected ? <NewUpload onOpen={onOpen} /> : ""}
 
         <ConnectButton />

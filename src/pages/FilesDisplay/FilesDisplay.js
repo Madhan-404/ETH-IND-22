@@ -21,10 +21,20 @@ export const FilesDisplay = () => {
     };
     getUserFiles();
   }, []);
+  const files = [
+    { name: "Wedding.png", url: "https://ipfs.io/ipfs/QmZ2Y1" },
+    { name: "Convocation.png", url: "https://ipfs.io/ipfs/QmZ2Y1" },
+    { name: "Blockchain_notes.txt", url: "https://ipfs.io/ipfs/QmZ2Y1" },
+    { name: "ETHIndia_invite.txt", url: "https://ipfs.io/ipfs/QmZ2Y1" },
+    { name: "Birthday.png", url: "https://ipfs.io/ipfs/QmZ2Y1" },
+    { name: "Letter.pdf", url: "https://ipfs.io/ipfs/QmZ2Y1" },
+  ];
   return (
     <>
       <div className={styles.outerContainer}>
-        <FileCard />
+        {files.map((file) => (
+          <FileCard key={file.name} name={file.name} url={file.url} />
+        ))}
       </div>
     </>
   );

@@ -8,10 +8,10 @@ import {
   darkTheme,
 } from "@rainbow-me/rainbowkit";
 import { infuraProvider } from "wagmi/providers/infura";
-import { publicProvider } from "wagmi/providers/public";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -42,12 +42,18 @@ const wagmiClient = createClient({
   connectors,
   provider,
 });
+const client = new ApolloClient({
+  uri: process.env.REACT_APP_GRAPH_API,
+  cache: new InMemoryCache(),
+});
 root.render(
   <StrictMode>
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains} theme={darkTheme()}>
         <ChakraProvider>
-          <App />
+          <ApolloProvider client={client}>
+            <App />
+          </ApolloProvider>
         </ChakraProvider>
       </RainbowKitProvider>
     </WagmiConfig>

@@ -1,7 +1,7 @@
 # GrayBox - ETHIndia22
 Decentralized file storage platform with access controls and encryption
 
-**Live here** - https://eth-ind-22.vercel.app/
+**Live here** - https://graybox22.vercel.app/
 
 ## Technologies
 - Lighthouse.Storage

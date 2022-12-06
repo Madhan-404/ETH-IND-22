@@ -77,7 +77,7 @@ const sign_auth_message = async() => {
   const signed_message = await signer.signMessage(messageRequested);
   return signed_message;
 };
-const decrypt = async(cid, publicKey) => {
+export const getFileUrl = async(cid, publicKey) => {
   const signed_message = await sign_auth_message();
 
   /*

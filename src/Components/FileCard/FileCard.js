@@ -1,11 +1,20 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
+import { useAccount } from "wagmi";
+import { getFileUrl } from "../../helpers/lightHouseStorage";
 import styles from "./style.module.css";
 
 // import will take event handler function accordiing to different services under 'handlers folder'
 
-export const FileCard = ({ name, url }) => {
+export const FileCard = ({ name, cid }) => {
+  const [url, setUrl] = useState("");
+  const { address } = useAccount();
+  useEffect(() => {
+    getFileUrl(cid, address).then((url) => {
+      setUrl(url);
+    });
+  }, []);
   return (
     <div className={styles.container}>
       <div className={styles.content}>

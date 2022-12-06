@@ -18,7 +18,7 @@ export const FilesDisplay = () => {
   return (
     <>
       <div className={styles.outerContainer}>
-        {data.files.map((file) => (
+        {data?.files.map((file) => (
           <FileCard key={file.name} name={file.name} cid={file.cid} />
         ))}
       </div>
